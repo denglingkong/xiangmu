@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><meta charset=UTF-8><title>09放大镜</title></head><link rel=stylesheet href=./css/index.css><link rel=stylesheet href=./css/a.css><script type=text/javascript>
+		window.onload = function(){			
+			var small = document.getElementById('small'); //小盒子
+			var mask = document.getElementById('mask');//遮罩层
+			var big = document.getElementById('big');//大盒子
+			var bigImg = document.getElementById('bigImg');//大盒子中的图片
+			//1 鼠标移入small盒子,mask盒子和big盒子显示
+			small.onmouseenter = function(){
+				mask.style.display = "block";
+				big.style.display = "block";
+			}
+			//2 鼠标移出small盒子,mask盒子和big盒子隐藏
+			small.onmouseleave = function(){
+				mask.style.display = "none";
+				big.style.display = "none";
+			}
+			//3 鼠标在small盒子中移动,mask跟着鼠标移动,并且鼠标位于mask中间
+			small.onmousemove = function(e){
+				var event = window.event || e;
+				//计算鼠标在small中的位置 
+				var pageX = event.clientX + document.documentElement.scrollLeft||document.body.scrollLeft;
+				var pageY = event.clientY + document.documentElement.scrollTop||document.body.scrollTop;
+				var x = pageX - box.offsetLeft - mask.offsetWidth/2;
+				var y = pageY - box.offsetTop - mask.offsetHeight/2;
+				var maxX = small.offsetWidth - mask.offsetWidth;
+				var maxY = small.offsetHeight - mask.offsetHeight;
+				if(x<0){x = 0;}
+				if(y<0){y = 0;}
+				if(x>maxX){x = maxX;}
+				if(y>maxY){y = maxY;}
+				//mask要定位
+				mask.style.left = x+"px";
+				mask.style.top = y + "px";
+				bigImg.style.marginLeft = -x/small.offsetWidth*bigImg.offsetWidth + "px";
+				bigImg.style.marginTop = -y/small.offsetHeight*bigImg.offsetHeight + "px";
+
+			}
+			
+		}
+	</script><body><div id=jdtb><div class=w><a href=# class=a1>京东首页</a> <a href=# class=a2>广东</a> <a href=# class=a3>您好，请登录</a> <a href=# class=a4>免费注册</a> <a href=# class=a3>我的订单</a> <a href=# class=a3>我的京东</a> <a href=# class=a3>京东会员</a> <a href=# class=a3>企业采购</a> <a href=# class=a3>客户服务</a> <a href=# class=a3>网站导航</a> <a href=# class=a3>手机京东</a></div></div><div id=gouwu><div class=gouwu_conten><div class=_jd><img src=./img/de2.png><a href=#>京东国际</a></div><form class=form1><input type=text class=in1 placeholder=请输入关键字...> <input type=button value="搜 索" class=in2></form></div></div><div><div id=box><div id=small><img src=./img/3j.jpg><div id=mask></div></div><div id=big><img src=./img/2j.jpg id=bigImg></div></div></div></body></html>

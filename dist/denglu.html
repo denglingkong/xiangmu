@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=stylesheet href=./css/index.css><link rel=stylesheet href=./css/a.css><script src=./js/denglu.js></script><title>登录页面</title></head><body><div id=tou><div class=tou_conten><strong><img src=./img/de2.png class=img1><a href=javascript:;>欢迎登录</a> <img src=./img/de3.png class=img2><a href=javascript:; class=aa>登录页面，调查问券</a></strong></div></div><div class=yj>依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版《京东隐私政策》已上线，将更有利于保护您的个人隐私。</div><div id=tp><img src=./img/de1.jpg><div class=gg><p class=gu>京东不会以任何理由要求您转账汇款，谨防诈骗。</p><a href=javascript:;><label>扫码登录</label> <span class=zhdl>账户登录</span></a><div class=hz><img src=./img/dl1.png class=im><img src=./img/dl2.png class=im2></div><p class=dk>打开<a href=javascript:;>手机京东</a>扫描二维码</p><strong><img src=./img/de4.png class=img3> | QQ | 微信 请登录...</strong></div></div><div id=deng><h3>注&nbsp;&nbsp;&nbsp;册</h3><form><input type=text placeholder=请输入用户名 class=yhm> <input type=password placeholder=请输入密码 class=ma> <input type=button class=bbtt value=点击注册></form></div><div id=tp3 style=display:none;height:0;><div class=gg3><p class=gu3>京东不会以任何理由要求您转账汇款，谨防诈骗。</p><a href=javascript:;><label class=smdl3>扫码登录</label> <span class=zhdl3>账户登录</span></a><form class=ff3><input type=text placeholder=邮箱/姓名/登录手机 class=text3> <input type=password placeholder=密码 class=psw3> <input type=button value="登 录" class=btn4></form><p class=dk3>打开<a href=javascript:;>手机京东</a>扫描二维码</p><strong><img src=./img/de4.png class=img33> | QQ | 微信 请登录...</strong></div></div><script>
+        (function(){
+    var deng = document.getElementById("deng");//注册页面
+    var bbtt = document.getElementsByClassName("bbtt")[0];//点击
+    var form = document.getElementsByClassName('form')[0];//表单
+    var tp = document.getElementById("tp");//二维码登录页面
+    var tp3 = document.getElementById("tp3");//账户登录页面
+    var  zhdl = document.getElementsByClassName('zhdl')[0];//
+    var ksz = [];
+   
+    // 注册登录
+    var yhm = document.getElementsByClassName('yhm')[0];
+    var ma = document.getElementsByClassName('ma')[0];
+    bbtt.onclick = function () {
+        if (yhm.value == "") {
+            alert('请输入用户名')
+            return
+        }
+        if (ma.value == "") {
+            alert('请输入密码')
+            return
+        }
+        var json = JSON.parse(localStorage.getItem('list')||"[]")
+        console.log(json)
+
+        if (!json.length) {
+            var obj = {
+                name: yhm.value,
+                password: ma.value
+            }
+            ksz.push(obj)
+            console.log(ksz)
+            localStorage.setItem('list', JSON.stringify(ksz))
+            yhm.value = ''
+            ma.value = ''
+            alert('恭喜你注册成功')
+            return
+        }
+
+
+        if (json.length) {
+            for (var i = 0; i < json.length; i++) {
+                if (json[i].name === yhm.value) {
+                    alert('该用户名已注册')
+                    yhm.value = ''
+                    ma.value = ''
+                    return
+                }
+            }
+            var obj = {
+                name: yhm.value,
+                password: ma.value
+            }
+            json.push(obj)
+            localStorage.setItem('list', JSON.stringify(json))
+            yhm.value = ''
+            ma.value = ''
+            alert('恭喜你注册成功')
+            deng.style.display = "none";
+            tp3.style.display = "block";
+            return
+        }
+
+    }
+        })();
+    
+  (function(){
+    var text3 = document.getElementsByClassName('text3')[0];//文本框
+var psw3 = document.getElementsByClassName('psw3')[0];//密码框
+var btn4 = document.getElementsByClassName('btn4')[0];//按钮
+console.log(btn4)
+btn4.onclick = function(){
+    var json = JSON.parse(localStorage.getItem('list')||"[]")
+      if(json.length){
+        for(var i = 0; i<json.length;i++){
+            if(text3.value == json[i].name && psw3.value == json[i].password){
+                alert("登录成功！");
+                return;
+            }else{
+                alert("用户名或密码错误");
+                return;
+            }
+        }
+    }
+     if(!json.length){
+         alert("请注册！");
+         json.naem = "";
+         json.password  
+         return;
+     }
+}
+  })()
+   
+   
+</script></body></html>

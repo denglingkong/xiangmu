@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/a.css">
+    <!-- <script src="./lib/jquery1.12.4.min.js"></script> -->
+    <title>购物车</title>
+</head>
+<body>
+      <div id="jdtb">
+          <div class="w">
+                <a href="#" class="a1">京东首页</a>
+                <a href="#" class="a2">广东</a>
+                <a href="#" class="a3">您好，请登录</a>
+                <a href="#" class="a4">免费注册</a>
+                <a href="#" class="a3">我的订单</a>
+                <a href="#" class="a3">我的京东</a>
+                <a href="#" class="a3">京东会员</a>
+                <a href="#" class="a3">企业采购</a>
+                <a href="#" class="a3">客户服务</a>
+                <a href="#" class="a3">网站导航</a>
+                <a href="#" class="a3">手机京东</a>
+          </div>
+      </div>
+      <!--购物车 -->
+      <div id="gouwu">
+          <div class="gouwu_conten">
+              <div class="_jd"><img src="./img/de2.png" /><a href="#">购物车</a></div>
+               <form class="form1">
+                    <input type="text" class="in1" placeholder="请输入关键字..."/>
+                    <input type="button" value="搜 索" class="in2"/>
+               </form>
+            </div>
+            <div class="che">
+                <img src="./img/gwc.png" class="imm"/>
+                <p class="pr">购物车内暂时没有商品，登录后将显示您之前加入的商品 </p>
+                <div class="ou"> <a href="#" class="ddu">登录</a></div>
+            </div>
+      </div>
+      <!-- 登录页面 -->
+      <div id="tp1" style="display:none;">
+              <div class="gg1">
+                  <p class="gu1">京东不会以任何理由要求您转账汇款，谨防诈骗。</p>
+                  <a href="javascript:;"><label>扫码登录</label> <span class="zhdl1">账户登录</span></a>
+                  <div class="hz1"><img src="./img/dl1.png" class="im1"/><img src="./img/dl2.png" class="im21"/></div>
+                  <p class="dk1">打开<a href="javascript:;">手机京东</a>扫描二维码</p>
+                  <strong><img src="./img/de4.png" class="img31"/> | QQ | 微信 请登录...</strong>
+               </div>
+       </div>
+        <!--账户登录 -->
+        <div id="tp2" style="display:none;height:0;">
+                <div class="gg2">
+                    <p class="gu2">京东不会以任何理由要求您转账汇款，谨防诈骗。</p>
+                    <a href="javascript:;"><label class="smdl">扫码登录</label> <span class="zhdl2">账户登录</span></a>
+                    <form class="ff">
+                        <input type="text" placeholder="邮箱/姓名/登录手机" class="text1"/>
+                        <input type="password" placeholder="密码" class="text2"/>
+                        <input type="button" value="登 录" class="btn3"/>
+                    </form>
+                    <p class="dk2">打开<a href="javascript:;">手机京东</a>扫描二维码</p>
+                    <strong><img src="./img/de4.png" class="img32"/> | QQ | 微信 请登录...</strong>
+                 </div>
+         </div>
+         <script>
+         var tp1 = document.getElementById("tp1");//二维码登录页面
+         var ddu = document.getElementsByClassName("ddu")[0];//登录按钮
+         var zhdl1 = document.getElementsByClassName("zhdl1")[0];//账户登录
+         var tp2 = document.getElementById("tp2");//账户登录页面
+         var btn3 = document.getElementsByClassName("btn3")[0];//登录按钮2
+         var smdl = document.getElementsByClassName("smdl")[0];//扫描登录3
+         ddu.onclick = function(){//登录按钮
+            tp1.style.display = "block";
+         }
+         zhdl1.onclick = function(){//账户登录按钮
+            tp1.style.display = "none";
+            tp2.style.display = "block";
+         }
+         btn3.onclick = function(){//登录按钮
+            tp2.style.display = "none";
+         }
+         smdl.onclick = function(){//扫描登录3
+            tp2.style.display = "none";
+            tp1.style.display = "block";
+         }
+
+         </script>
+         <div id="container">
+                
+        </div>
+        <script type="text/javascript" src="./dist/js/car.js"></script>
+</body>
+</html>
